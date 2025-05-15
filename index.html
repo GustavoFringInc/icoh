@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Warung Bu Isoh - Toko Bahan Makanan Pokok</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #d9f0d9);
+      color: #2f855a;
+    }
+    a {
+      text-decoration: none;
+      color: #4a7c4a;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #27632a;
+    }
+    /* Header */
+    header {
+      background: white;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 600;
+      color: #4a4a4a;
+    }
+    nav a:hover {
+      color: #2f855a;
+    }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      animation: fadeSlideIn 0.7s ease forwards;
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #27632a;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #4a4a4a;
+      font-size: 1.125rem;
+      line-height: 1.5;
+    }
+    /* Category buttons */
+    .categories {
+      text-align: center;
+      margin: 3rem 1rem;
+    }
+    .categories h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .categories button {
+      border: 2px solid #4a7c4a;
+      background: transparent;
+      color: #4a7c4a;
+      font-weight: 600;
+      margin: 0 0.5rem 0.5rem 0.5rem;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .categories button:hover {
+      background-color: #4a7c4a;
+      color: white;
+    }
+    /* Products Grid */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+      padding: 0 2rem 4rem;
+    }
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation-fill-mode: forwards;
+      animation-timing-function: ease;
+    }
+    .card:hover {
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+    }
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+      display: inline-block;
+      color: #4a7c4a;
+    }
+    .card:hover .card-icon {
+      transform: scale(1.15);
+    }
+    .card h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #27632a;
+    }
+    .card p {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      min-height: 48px;
+    }
+    .btn-add {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #27632a;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: white;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-add:hover {
+      background-color: #1f4b20;
+    }
+    /* Footer */
+    footer {
+      background-color: #27632a;
+      color: white;
+      padding: 2rem 2rem 3rem;
+    }
+    footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 2rem;
+    }
+    footer h5 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    footer p, footer a {
+      font-size: 0.9rem;
+      color: #d1d1d1;
+    }
+    footer a:hover {
+      color: white;
+    }
+    footer .contact-info p {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    /* Animations */
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Warung Bu Isoh</h1>
+    <nav>
+      <a href="#produk">Produk</a>
+      <a href="#kategori">Kategori</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero" role="banner" aria-label="Hero section">
+    <h2>Toko Bahan Makanan Pokok</h2>
+    <p>Belanja bahan pokok jadi mudah, cepat, dan terjamin kualitasnya. Langsung dari petani dan distributor terpercaya.</p>
+  </section>
+
+  <section id="kategori" class="categories" aria-label="Kategori Produk">
+    <h3>Kategori Produk</h3>
+    <button type="button">Beras</button>
+    <button type="button">Sayur</button>
+    <button type="button">Roti</button>
+    <button type="button">Lainnya</button>
+  </section>
+
+  <section id="produk" class="products" aria-label="Produk Unggulan">
+    <article class="card" style="animation: fadeSlideUp 0.5s ease forwards; animation-delay: 0.1s;">
+      <div class="card-icon" aria-hidden="true">🌿</div>
+      <h4>Beras</h4>
+      <p>Beras premium untuk kebutuhan sehari-hari.</p>
+      <button class="btn-add" type="button">🛒 Tambah ke Keranjang</button>
+    </article>
+    <article class="card" style="animation: fadeSlideUp 0.5s ease forwards; animation-delay: 0.3s;">
+      <div class="card-icon" aria-hidden="true">🥕</div>
+      <h4>Wortel</h4>
+      <p>Wortel segar kaya vitamin A.</p>
+      <button class="btn-add" type="button">🛒 Tambah ke Keranjang</button>
+    </article>
+    <article class="card" style="animation: fadeSlideUp 0.5s ease forwards; animation-delay: 0.5s;">
+      <div class="card-icon" aria-hidden="true">🥖</div>
+      <h4>Roti</h4>
+      <p>Roti gandum sehat dan bergizi.</p>
+      <button class="btn-add" type="button">🛒 Tambah ke Keranjang</button>
+    </article>
+    <article class="card" style="animation: fadeSlideUp 0.5s ease forwards; animation-delay: 0.7s;">
+      <div class="card-icon" aria-hidden="true">🥔</div>
+      <h4>Kentang</h4>
+      <p>Kentang lokal berkualitas tinggi.</p>
+      <button class="btn-add" type="button">🛒 Tambah ke Keranjang</button>
+    </article>
+    <article class="card" style="animation: fadeSlideUp 0.5s ease forwards; animation-delay: 0.9s;">
+      <div class="card-icon" aria-hidden="true">🍃</div>
+      <h4>Sayur Hijau</h4>
+      <p>Sayuran hijau segar langsung dari petani.</p>
+      <button class="btn-add" type="button">🛒 Tambah ke Keranjang</button>
+    </article>
+  </section>
+
+  <footer id="kontak" aria-label="Kontak Warung Bu Isoh">
+    <div class="container">
+      <section>
+        <h5>Warung Bu Isoh</h5>
+        <p>Bahan pokok segar dan terpercaya untuk kebutuhan harian Anda.</p>
+      </section>
+      <section class="contact-info">
+        <h5>Kontak</h5>
+        <p>📞 +62 812 3456 7890</p>
+        <p>✉️ support@sembakokita.id</p>
+      </section>
+      <section>
+        <h5>Alamat</h5>
+        <p>Jl. Sejahtera No. 123, Jakarta</p>
+      </section>
+    </div>
+    <p style="text-align:center; margin-top:2rem; font-size:0.875rem;">&copy; 2025 Warung Bu Isoh. All rights reserved.</p>
+  </footer>
+</body>
+</html>
